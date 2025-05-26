@@ -518,6 +518,7 @@ export const getNavigation = (section) => {
             { title: "Flow", href: "/validator/external-chains/flow/" },
             { title: "Fraxtal", href: "/validator/external-chains/fraxtal/" },
             { title: "Hedera", href: "/validator/external-chains/hedera/" },
+            { title: "Hyperliquid", href: "/validator/external-chains/hyperliquid/" },
             {
               title: "Immutable zkEVM",
               href: "/validator/external-chains/immutable/",
