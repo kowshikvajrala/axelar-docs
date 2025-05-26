@@ -21,7 +21,8 @@ Set up your Hyperliquid Mainnet or Testnet node
 2. Configuring the node
 3. Download the Visor binary
 4. Start the node
-5. Check latest block height
+5. To Start the service as systemd service
+6. Check latest block height
 
 ### Clone the Repository and Import key
 
@@ -96,6 +97,27 @@ You'll start seeing some output. After a few minutes, you should see lines that 
 2025-05-26T06:59:38.395Z WARN >>> hl-node @@ applied block 607619400
 2025-05-26T06:59:39.407Z WARN >>> hl-node @@ applied block 607619500
 2025-05-26T06:59:40.688Z WARN >>> hl-node @@ applied block 607619600
+```
+
+### To Start the service as systemd service
+
+```bash
+nano /etc/systemd/system/hyperliquid.service
+```
+
+```bash
+[Unit]
+Description=Hedera JSON-RPC Relayer
+After=network.target
+
+[Service]
+Type=simple
+User=$USER
+ExecStart=/path/to/hl-visor run-non-validator --serve-eth-rpc
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 ### Check latest block height
